@@ -1,3 +1,13 @@
+const { hash } = window.location;
+
+const message = atob(hash.replace('#', ''));
+
+if (message) {
+    document.querySelector('#message-form').classList.add('hide');
+    document.querySelector('#message-show').classList.remove('hide');
+    document.querySelector('h1').innerHTML = message;
+}
+
 // is a normal <button></button> considered a submit in a form?
 document.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
